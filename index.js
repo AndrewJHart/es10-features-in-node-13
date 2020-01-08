@@ -9,7 +9,7 @@ console.log(maxValue(...nums));
 
 const _math = './utils.js';
 
-// must use --experimental-modules to use async import 
+// must use --experimental-modules to use async import
 import(_math)
     .then(module => {
         console.log(module.random());
