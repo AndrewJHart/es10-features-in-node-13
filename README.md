@@ -6,7 +6,7 @@ flag when running the project.
 ## What is it testing? 
 
 - [x] Currently it tests the async import in index.js.
-- [x] Using `#` for private props within classes 
+- [x] Using `#` for private props within classes (this was available in v12 so not experimental but i've never used it)
 
 ## Setting up the project 
 
