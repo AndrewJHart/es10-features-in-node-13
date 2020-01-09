@@ -1,8 +1,12 @@
 ## Toying around with Node v13.5 features 
 
 This is very simple, I just wanted to test using the `--experimental-modules`
-flag when running the project. Currently it just tests
-the async import in index.js. 
+flag when running the project. 
+
+## What is it testing? 
+
+- [x] Currently it tests the async import in index.js.
+- [x] Using `#` for private props within classes 
 
 ## Setting up the project 
 
