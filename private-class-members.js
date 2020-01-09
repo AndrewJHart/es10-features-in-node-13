@@ -10,20 +10,23 @@
  */
 export default class CoffeeMachine {
   #waterLimit = 200;  // private prop to hold max water limit
+  #waterValue = Number.MAX_SAFE_INTEGER;
   
   /**
-   * getter to get the water limit and ensure
-   * its not too high by calling private method
+   * getter to get the water limit value
+   * from the private property
    *
    * @returns {number}
    */
   get waterAmount() {
-    return this.#waterLimit;
+    return this.#waterValue;
   }
   
   /**
-   * setter to set water value & log the value if
-   * the value is within proper limit
+   * setter to set water value, log the value if
+   * the value is within proper limit & ensure
+   * its not too high by checking given value
+   * against
    *
    * @param {number} value
    */
@@ -32,9 +35,9 @@ export default class CoffeeMachine {
       ? (() => { throw `Negative water` })()
       : value > this.#waterLimit
       ? (() => { throw `Water value is beyond threshold of 200` })()
-      : this.#waterLimit = value;
+      : this.#waterValue = value;
   
-    console.log('water limit is fine', value);
+    console.log('water limit is fine', this.#waterValue);
   }
 }
 

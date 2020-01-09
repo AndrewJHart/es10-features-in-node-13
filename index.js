@@ -28,5 +28,5 @@ coffeeMachine.waterLimit = 1000;
 // updates the private method #checkWater(value)
 // using the class properly with setter method
 // and checks if the value is within limit
-coffeeMachine.waterAmount = 1000;
 coffeeMachine.waterAmount = 100;
+coffeeMachine.waterAmount = 1000;
