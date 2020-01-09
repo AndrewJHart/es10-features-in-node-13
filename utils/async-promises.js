@@ -1,8 +1,8 @@
 
 const settlePromises = async (promises) => {
   return await Promise
-      .allSettled(promises)
-      .then((responses) => responses)
+      .all(promises)
+      .then((response) => response)
       .then(data => console.log(data))
 };
 

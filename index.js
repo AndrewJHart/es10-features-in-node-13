@@ -6,21 +6,9 @@ import fetch from "node-fetch";
 const nums = [1,2,4];
 const math = './utils/math.js';
 
-// must use --experimental-modules to use async import
-import(math)
-    .then(module => {
-        console.log(module.random());
-        return module;
-    })
-    .then(module =>
-        console.log(module.maxValue(...nums))
-    )
-    .catch(err => console.log(err));
-
 /*
  * Testing private props and methods in classes using #
  */
-
 let coffeeMachine = new CoffeeMachine();
 
 // can't access privates from outside of the class
@@ -40,7 +28,17 @@ const promises = [
     fetch('http://jservice.io/api/clues?category=4')
 ];
 
-settlePromises(promises).then(() => console.log('settlePromises resolved; microqueue empty'));
+// must use --experimental-modules to use async import
+import(math)
+    .then(module => {
+        module.random();
+        return module;
+    })
+    .then(module =>
+        module.maxValue(...nums)
+    )
+    .then(() => settlePromises(promises))
+    .catch(err => console.log(err));
 
 // only coffee machine output shows up before this
 console.log('Proving that the async import and settlePromises are truly concurrent');
