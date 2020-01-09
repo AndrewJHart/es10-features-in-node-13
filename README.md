@@ -1,12 +1,13 @@
 ## Toying around with Node v13.5 features 
 
-This is very simple, I just wanted to test using the `--experimental-modules`
-flag when running the project. 
+This is very simple, the only notable thing is that I am using the `--experimental-modules`
+flag when running the project so i can use standard `import from "..."` syntax with js modules.
 
 ## What is it testing? 
 
 - [x] Currently it tests the async import in index.js.
 - [x] Using `#` for private props within classes (this was available in v12 so not experimental but i've never used it)
+- [x] Uses `Promise.allSettled([...promises])`
 
 ## Setting up the project 
 
