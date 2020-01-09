@@ -2,10 +2,10 @@
 import CoffeeMachine from "./private-class-members.js";
 
 const nums = [1,2,4];
-const _math = './utils.js';
+const math = './utils.js';
 
 // must use --experimental-modules to use async import
-import(_math)
+import(math)
     .then(module => {
         console.log(module.random());
         return module;
