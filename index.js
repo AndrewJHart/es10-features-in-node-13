@@ -1,5 +1,7 @@
 // const max = require('./utils').maxValue;
 import CoffeeMachine from "./private-class-members.js";
+import settlePromises from "./async-promises.js";
+import fetch from "node-fetch";
 
 const nums = [1,2,4];
 const math = './utils.js';
@@ -29,4 +31,13 @@ coffeeMachine.waterLimit = 1000;
 // using the class properly with setter method
 // and checks if the value is within limit
 coffeeMachine.waterAmount = 100;
-coffeeMachine.waterAmount = 1000;
+// coffeeMachine.waterAmount = 1000;
+
+
+const promises = [
+    fetch('http://jservice.io/api/clues?category=1'),
+    fetch('http://jservice.io/api/clues?category=25'),
+    fetch('http://jservice.io/api/clues?category=4')
+];
+
+settlePromises(promises).then(() => console.log('hello'));
