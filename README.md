@@ -23,7 +23,7 @@ This project only has one dependency, `node-fetch` so install it
 npm i
 ```
 
-  note: make sure you are using at least node version `12.13.0`. 
+ > note: make sure you are using at least node version `12.13.0`. 
 
 ## running the project
 
