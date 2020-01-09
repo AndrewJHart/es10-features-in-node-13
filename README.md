@@ -1,18 +1,29 @@
 ## Toying around with Node v13.5 features 
 
-This is very simple, I just wanted to test using the `--experimental-modules`
-flag when running the project. 
+This is very simple, the only notable thing is that I am using the `--experimental-modules`
+flag when running the project so i can use standard `import from "..."` syntax with js modules.
 
 ## What is it testing? 
 
 - [x] Currently it tests the async import in index.js.
 - [x] Using `#` for private props within classes (this was available in v12 so not experimental but i've never used it)
+- [x] Uses `Promise.allSettled([...promises])`
 
 ## Setting up the project 
 
-Clone the project and since there are no `node_modules` to
-install, there's simply nothing more to do except making sure 
-you are using at least node version `13.5.0`. 
+Clone the project then cd into the directory
+
+```bash
+$ cd es10-features-in-node-13
+```
+
+This project only has one dependency, `node-fetch` so install it 
+
+```bash
+npm i
+```
+
+ > note: make sure you are using at least node version `12.13.0`. 
 
 ## running the project
 
