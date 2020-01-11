@@ -1,38 +1,59 @@
-## Toying around with Node v13.5 features 
+## Playing with ES9+ features in node v13.5.0
 
-This is very simple, the only notable thing is that I am using the `--experimental-modules`
-flag when running the project so i can use standard `import from "..."` syntax with js modules.
+Before explaining what features we are attempting to experiment with, 
+there are a few notable modifications to the node application that are
+required to run it.
 
-## What is it testing? 
+This is a simple plain node application with two subtle but 
+notable additions.
+ 1. I am using the `--experimental-modules` flag when running the 
+    project so i can use standard `export` and `export default` for exporting
+    from a module. Allows us to use `import <file> from "<path>"` syntax with 
+    js modules.
+ 2. I've modified package.json to include the line `"type": "module"`
 
-- [x] Currently it tests the async import in index.js.
-- [x] Using `#` for private props within classes (this was available in v12 so not experimental but i've never used it)
-- [x] Uses `Promise.allSettled([...promises])`
+> These modifications allow us to use the newer import/export syntax.
+> Also be aware that using import in this context requires the file extension like so:
 
-## Setting up the project 
+```javascript
+// notice the .js at the end of the import statement
+import CoffeeMachine from "./utils/private-class-members.js";
+```
 
-Clone the project then cd into the directory
+### What new features are attempting to use?
+
+- [x] Asynchronously import another module that returns a promise
+- [x] Using `#` for private props within classes
+- [x] Uses `Promise.allSettled([...promises])` instead of `all()`
+- [x] Uses `Promise.any([...promises])` instead of `race()`
+- [x] Use nullish coalescence operator 
+- [x] Use the **Elvis** operator
+
+### Setting up the project 
+
+Clone the project & then cd into the directory
 
 ```bash
+$ git clone git@github.com:AndrewJHart/es10-features-in-node-13.git
 $ cd es10-features-in-node-13
 ```
 
 This project only has one dependency, `node-fetch` so install it 
 
 ```bash
-npm i
+npm install
 ```
 
  > note: make sure you are using at least node version `12.13.0`. 
 
 ## running the project
 
-To run the project is simple,  i've added a script in package.json that uses the experimental flags.
+To run the project is simple, i've added a script in package.json that uses the experimental flags.
 just execute this in the project directory:
 
 ```bash
 $ npm run start
 ``` 
 
-Thats all folks. I'll be adding new things later when i have time
+That's all folks. I'll be adding new things later when i have time
 just to test them. 

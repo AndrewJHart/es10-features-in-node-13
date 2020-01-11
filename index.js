@@ -13,20 +13,13 @@ let coffeeMachine = new CoffeeMachine();
 
 // can't access privates from outside of the class
 // Gives silent error as prop is not accessible
-coffeeMachine.waterLimit = 1000;
+coffeeMachine.#waterLimit = 1000;
 
 // updates the private method #checkWater(value)
 // using the class properly with setter method
 // and checks if the value is within limit
 coffeeMachine.waterAmount = 100;
 // coffeeMachine.waterAmount = 1000;
-
-
-const promises = [
-    fetch('http://jservice.io/api/clues?category=1'),
-    fetch('http://jservice.io/api/clues?category=25'),
-    fetch('http://jservice.io/api/clues?category=4')
-];
 
 // must use --experimental-modules to use async import
 import(math)
@@ -37,8 +30,14 @@ import(math)
     .then(module =>
         module.maxValue(...nums)
     )
-    .then(() => settlePromises(promises))
+    .then(() => {
+        return settlePromises([
+          fetch('http://jservice.io/api/clues?category=1'),
+          fetch('http://jservice.io/api/clues?category=25'),
+          fetch('http://jservice.io/api/clues?category=4')
+        ]);
+    })
     .catch(err => console.log(err));
 
 // only coffee machine output shows up before this
-console.log('Proving that the async import and settlePromises are truly concurrent');
+console.log('Proves that the async import and settlePromises are truly concurrent');
