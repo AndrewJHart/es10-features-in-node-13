@@ -14,15 +14,13 @@ let coffeeMachine = new CoffeeMachine();
 
 // can't access privates from outside of the class
 // Gives silent error as prop is not accessible
-coffeeMachine.#waterLimit = 1000;
+// uncomment to see error - not caught in try/catch
+// coffeeMachine.#waterLimit = 1000;
 
-// updates the private method #checkWater(value)
-// using the class properly with setter method
-// and checks if the value is within limit
+// updates private property via setter
 coffeeMachine.waterAmount = 100;
-// coffeeMachine.waterAmount = 1000;
 
-// must use --experimental-modules to use async import
+// Asynchronously import our local math module
 import(math)
     .then(module => {
         module.random();
@@ -33,9 +31,9 @@ import(math)
     )
     .then(() => {
         return settlePromises([
-          fetch('http://jservice.io/api/clues?category=1'),
-          fetch('http://jservice.io/api/clues?category=25'),
-          fetch('http://jservice.io/api/clues?category=4')
+          axios.get('http://jservice.io/api/clues?category=1'),
+          axios.get('http://jservice.io/api/clues?category=25'),
+          axios.get('http://jservice.io/api/clues?category=4')
         ]);
     })
     .catch(err => console.log(err));
