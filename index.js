@@ -1,7 +1,8 @@
 // const max = require('./utils').maxValue;
 import CoffeeMachine from "./utils/private-class-members.js";
 import settlePromises from "./utils/async-promises.js";
-import fetch from "node-fetch";
+// import fetch from "node-fetch";
+import axios from "axios";
 
 const nums = [1,2,4];
 const math = './utils/math.js';

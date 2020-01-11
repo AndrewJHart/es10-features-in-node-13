@@ -13,10 +13,12 @@ notable additions.
  2. I've modified package.json to include the line `"type": "module"`
 
 > These modifications allow us to use the newer import/export syntax.
-> Also be aware that using import in this context requires the file extension like so:
+> Also be aware that using import for **local modules** in this 
+> context requires the file extension like so:
 
 ```javascript
-// notice the .js at the end of the import statement
+// notice the .js at the end of the import statement of this local
+// module. Dependencies installed via npm do not require the .js
 import CoffeeMachine from "./utils/private-class-members.js";
 ```
 
@@ -48,7 +50,10 @@ npm install
 
 ## running the project
 
-To run the project is simple, i've added a script in package.json that uses the experimental flags.
+To run the project is simple. To obviate having to run the script with
+the `--experimental-modules` flag every time, i've added a script in 
+package.json that uses the experimental flags.
+
 just execute this in the project directory:
 
 ```bash
@@ -57,3 +62,5 @@ $ npm run start
 
 That's all folks. I'll be adding new things later when i have time
 just to test them. 
+
+[Andrew Hart](https://www.github.com/AndrewJHart)
