@@ -1,7 +1,6 @@
 // const max = require('./utils').maxValue;
 import CoffeeMachine from "./utils/private-class-members.js";
 import settlePromises from "./utils/async-promises.js";
-// import fetch from "node-fetch";
 import axios from "axios";
 
 const nums = [1,2,4];
@@ -19,6 +18,8 @@ let coffeeMachine = new CoffeeMachine();
 
 // updates private property via setter
 coffeeMachine.waterAmount = 100;
+
+console.log(coffeeMachine.waterAmount = 100);
 
 // Asynchronously import our local math module
 import(math)
